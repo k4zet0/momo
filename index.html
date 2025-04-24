@@ -1,132 +1,81 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;}
-  html, body {
-    font-family: 'Inter', sans-serif;
-    background-color: #111;
-    color: #fff;
-    scroll-behavior: smooth;}
-  section {
-    padding: 80px 20px;
-    max-width: 900px;
-    margin: 0 auto;}
-  h1, h2 {
-    margin-bottom: 20px;
-    font-weight: 700;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background: #111;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+      }
+      h1, h2 {
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid #fff2;
+        transition: 0.3s;
+      }
+      a:hover {
+        border-bottom: 1px solid #fff;
+      }
+      .hero {
+        font-size: 3rem;
+        animation: fadeIn 1.5s ease-in-out forwards;
+        opacity: 0;
+      }
+      .subtext {
+        font-size: 1.2rem;
+        color: #ccc;
+        opacity: 0;
+      }
+      @keyframes fadeIn {
+        to { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; transform: translateY(20px); }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="hero">
+      <h1 class="hero">Your Name</h1>
+      <p class="subtext">Web Developer / Designer</p>
+    </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>簡単な自己紹介を書きましょう。興味・スキル・背景など。</p>
+    </section>
+    <section id="works">
+      <h2>Works</h2>
+      <p>ここに作品やプロジェクトを載せていきます。</p>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </section>
 
-    /* Hero Section /
-    #hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex-direction: column;
-    }
-    .tilt-box {
-      background: #222;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
-    }
-    .subtitle {
-      font-size: 1.2rem;
-      color: #aaa;
-    }
-
-    / Section Animation /
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    / Footer /
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    / Simple link hover /
-    a {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom 0.3s ease;
-    }
-    a:hover {
-      border-bottom: 1px solid #fff;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- 1. Hero Section -->
-  <section id="hero">
-    <div class="tilt-box" data-tilt>
-      <h1>あなたの名前</h1>
-      <p class="subtitle">Web Developer / Designer</p>
-    </div>
-  </section>
-
-  <!-- 2. About Section -->
-  <section id="about" class="fade-in">
-    <h2>自己紹介</h2>
-    <p>ここに自己紹介文が入ります。</p>
-  </section>
-
-  <!-- 3. Works Section -->
-  <section id="works" class="fade-in">
-    <h2>作品紹介</h2>
-    <p>ここに作品の概要や説明が入ります。</p>
-  </section>
-
-  <!-- 4. Contact Section -->
-  <section id="contact" class="fade-in">
-    <h2>お問い合わせ・SNS</h2>
-    <p>ここにSNSリンクや連絡方法が入ります。</p>
-  </section>
-
-  <!-- 5. Footer -->
-  <footer>
-    &copy; 2025 あなたの名前. All rights reserved.
-  </footer>
-
-  <!-- vanilla-tilt.js -->
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
-
-  <!-- JS: Fade-in on scroll -->
-  <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const onScroll = () => {
-      const trigger = window.innerHeight 0.85;
-      faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < trigger) {
-          el.classList.add('show');
-        }
-      });
-    };
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('load', onScroll);
-  </script>
-
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+      gsap.to(".hero", { duration: 1.5, y: 0, opacity: 1 });
+      gsap.to(".subtext", { duration: 2, delay: 0.5, y: 0, opacity: 1 });
+    </script>
+  </body>
 </html>
