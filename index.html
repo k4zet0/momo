@@ -79,12 +79,41 @@
         to { opacity: 1; transform: translateY(0); }
         from { opacity: 0; transform: translateY(20px); }
       }
-    </style>
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+      }
+      .lightbox p {
+        color: #ccc;
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .work-item figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+</style>
   </head>
   <body>
     <section id="hero">
       <h1 class="hero">momo/aster01d</h1>
-      <p class="subtext">Illustrator / Designer</p>
+      <p class="subtext">Illustrator</p>
     </section>
     <section id="about">
       <h2>About Me</h2>
@@ -92,21 +121,16 @@
     </section>
     <section id="works">
       <h2>Works</h2>
-      <div class="works-grid">
-        <div class="work-item">
-          <img src="https://github.com/k4zet0/momo/blob/main/da-rin.png?raw=true" alt="Work 1">
-        </div>
-        <div class="work-item">
-          <img src="https://github.com/k4zet0/momo/blob/main/yuati.png?raw=true" alt="Work 2">
-        </div>
-        <div class="work-item">
-          <img src="https://github.com/k4zet0/momo/blob/main/zuha.png?raw=true" alt="Work 3">
-        </div>
-        <div class="work-item">
-          <img src="https://github.com/k4zet0/momo/blob/main/40gou.png?raw=true" alt="Work 4">
-        </div>
-      </div>
-    </section>
+      $1
+  <div class="work-item">
+    <img src="https://github.com/k4zet0/momo/blob/main/yuati.png?raw=true" alt="Work 2">
+  </div>
+  <div class="work-item">
+    <img src="https://github.com/k4zet0/momo/blob/main/zuha.png?raw=true" alt="Work 3">
+  </div>
+  <div class="work-item">
+    <img src="https://github.com/k4zet0/momo/blob/main/40gou.png?raw=true" alt="Work 4">
+  </div>$2
     <section id="contact">
       <h2>Contact</h2>
       <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
@@ -117,5 +141,30 @@
       gsap.to(".hero", { duration: 1.5, y: 0, opacity: 1 });
       gsap.to(".subtext", { duration: 2, delay: 0.5, y: 0, opacity: 1 });
     </script>
-  </body>
+  <div class="lightbox" id="lightbox">
+  <div>
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-desc"></p>
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+
+  document.querySelectorAll('.work-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxDesc.textContent = img.dataset.desc;
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+</script>
+</body>
 </html>
