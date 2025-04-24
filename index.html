@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+  html, body {
+    font-family: 'Inter', sans-serif;
+    background-color: #111;
+    color: #fff;
+    scroll-behavior: smooth;}
+  section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;}
+  h1, h2 {
+    margin-bottom: 20px;
+    font-weight: 700;}
+
+    /* Hero Section /
+    #hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    .tilt-box {
+      background: #222;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+
+    / Section Animation /
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    / Footer /
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    / Simple link hover /
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.3s ease;
+    }
+    a:hover {
+      border-bottom: 1px solid #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Hero Section -->
+  <section id="hero">
+    <div class="tilt-box" data-tilt>
+      <h1>あなたの名前</h1>
+      <p class="subtitle">Web Developer / Designer</p>
+    </div>
+  </section>
+
+  <!-- 2. About Section -->
+  <section id="about" class="fade-in">
+    <h2>自己紹介</h2>
+    <p>ここに自己紹介文が入ります。</p>
+  </section>
+
+  <!-- 3. Works Section -->
+  <section id="works" class="fade-in">
+    <h2>作品紹介</h2>
+    <p>ここに作品の概要や説明が入ります。</p>
+  </section>
+
+  <!-- 4. Contact Section -->
+  <section id="contact" class="fade-in">
+    <h2>お問い合わせ・SNS</h2>
+    <p>ここにSNSリンクや連絡方法が入ります。</p>
+  </section>
+
+  <!-- 5. Footer -->
+  <footer>
+    &copy; 2025 あなたの名前. All rights reserved.
+  </footer>
+
+  <!-- vanilla-tilt.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+
+  <!-- JS: Fade-in on scroll -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const onScroll = () => {
+      const trigger = window.innerHeight 0.85;
+      faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
+  </script>
+
+</body>
+</html>
